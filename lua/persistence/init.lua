@@ -37,6 +37,10 @@ function M.start()
         Config.options.pre_save()
       end
 
+      if Config.options.should_save and not Config.options.should_save() then
+        return
+      end
+
       if not Config.options.save_empty then
         local bufs = vim.tbl_filter(function(b)
           if vim.bo[b].buftype ~= "" then

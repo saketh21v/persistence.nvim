@@ -6,6 +6,8 @@
 
 - automatically saves the active session under `~/.local/state/nvim/sessions` on exit
 - simple API to restore the current or last session
+- should_save hook to prevent saving the session
+    - Useful to avoid saving the session when vim is started in a specific way
 
 ## ⚡️ Requirements
 
