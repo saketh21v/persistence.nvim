@@ -43,6 +43,10 @@ function M.start()
     callback = function()
       M.fire("SavePre")
 
+      if Config.options.should_save and not Config.options.should_save() then
+        return
+      end
+
       if Config.options.need > 0 then
         local bufs = vim.tbl_filter(function(b)
           if vim.bo[b].buftype ~= "" or vim.bo[b].filetype == "gitcommit" or vim.bo[b].filetype == "gitrebase" then
